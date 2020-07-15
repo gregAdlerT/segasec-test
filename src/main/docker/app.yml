@@ -1,0 +1,22 @@
+version: '2'
+services:
+  libapp-app:
+    image: libapp
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - SPRING_PROFILES_ACTIVE=prod,swagger
+      - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
+      - SPRING_DATASOURCE_URL=jdbc:mysql://libapp-mysql:3306/libapp?useUnicode=true&characterEncoding=utf8&useSSL=false
+      - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+      - SPRING_DATA_JEST_URI=http://libapp-elasticsearch:9200
+      - SPRING_ELASTICSEARCH_REST_URIS=http://libapp-elasticsearch:9200
+    ports:
+      - 8080:8080
+  libapp-mysql:
+    extends:
+      file: mysql.yml
+      service: libapp-mysql
+  libapp-elasticsearch:
+    extends:
+      file: elasticsearch.yml
+      service: libapp-elasticsearch
