@@ -13,7 +13,7 @@
 # Full reference is available at:
 # http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
 # ===================================================================
-
+reviewServerKey: kRQVL5G0Gm41wtjbvTqnRcSzy6iHC53x
 management:
   endpoints:
     web:
@@ -150,4 +150,5 @@ jhipster:
 # https://www.jhipster.tech/common-application-properties/
 # ===================================================================
 
-# application:
+#application:
+
